@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Cool Users
+  p Welcome to the cool users page, #{userName}!
+  ul
+    each user in users
+      li #{user.name} - #{user.email}
