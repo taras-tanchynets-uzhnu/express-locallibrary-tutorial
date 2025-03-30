@@ -35,12 +35,23 @@ AuthorSchema.virtual('date_of_death_formatted').get(function () {
 AuthorSchema.virtual('lifespan_formatted').get(function () {
   let lifespan = '';
   if (this.date_of_birth) {
-    lifespan += this.date_of_birth_formatted;
+    lifespan += DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
   }
   if (this.date_of_death) {
-    lifespan += ` - ${this.date_of_death_formatted}`;
+    lifespan += ` - ${DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)}`;
   }
   return lifespan;
+});
+
+AuthorSchema.virtual('age').get(function () {
+  if (this.date_of_birth) {
+    const birthDate = DateTime.fromJSDate(this.date_of_birth);
+    const endDate = this.date_of_death
+      ? DateTime.fromJSDate(this.date_of_death)
+      : DateTime.local();
+    return Math.floor(endDate.diff(birthDate, 'years').years); // Округлення до цілого числа
+  }
+  return '';
 });
 
 module.exports = mongoose.model('Author', AuthorSchema);
