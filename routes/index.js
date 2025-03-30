@@ -1,22 +1,8 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+var express = require('express')
+var router = express.Router()
 
-const mongoDB = process.env.MONGODB_URI;
+router.get('/', function (req, res) {
+  res.redirect('/catalog')
+})
 
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-
-module.exports = router;
+module.exports = router
