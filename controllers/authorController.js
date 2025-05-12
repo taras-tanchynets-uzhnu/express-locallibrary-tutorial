@@ -1,75 +1,29 @@
 const Author = require("../models/author");
-const asyncHandler = require("express-async-handler");
 const Book = require("../models/book");
+const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
-
 
 // Display list of all Authors.
 exports.author_list = asyncHandler(async (req, res, next) => {
   const allAuthors = await Author.find().sort({ family_name: 1 }).exec();
-  res.json({
-    author_list: allAuthors,
-  });
+  res.json({ author_list: allAuthors });
 });
-
 
 // Display detail page for a specific Author.
 exports.author_detail = asyncHandler(async (req, res, next) => {
-  // Get details of author and all their books (in parallel)
-  const [author, allBooksByAuthor] = await Promise.all([
+  const [author, authorBooks] = await Promise.all([
     Author.findById(req.params.id).exec(),
     Book.find({ author: req.params.id }, "title summary").exec(),
   ]);
 
   if (author === null) {
-    // No results.
     const err = new Error("Author not found");
     err.status = 404;
     return next(err);
   }
 
-  res.json({
-    author: author,
-    author_books: allBooksByAuthor,
-  });
+  res.json({ author, author_books: authorBooks });
 });
-
-
-// Display Author create form on GET.
-exports.author_create_get = (req, res, next) => {
-  res.json({
-    fields: {
-      first_name: {
-        type: "text",
-        label: "First Name",
-        required: true,
-        placeholder: "Enter first name",
-      },
-      family_name: {
-        type: "text",
-        label: "Family Name",
-        required: true,
-        placeholder: "Enter family name",
-      },
-      date_of_birth: {
-        type: "date",
-        label: "Date of birth",
-        required: false,
-      },
-      date_of_death: {
-        type: "date",
-        label: "Date of death",
-        required: false,
-      },
-    },
-    submit: {
-      label: "Submit",
-      method: "POST",
-      endpoint: "/catalog/authors",
-    },
-  });
-};
-
 
 // Handle Author create on POST.
 exports.author_create = [
@@ -77,32 +31,32 @@ exports.author_create = [
   body("first_name")
     .trim()
     .isLength({ min: 1 })
-    .escape()
     .withMessage("First name must be specified.")
     .isAlphanumeric()
-    .withMessage("First name has non-alphanumeric characters."),
+    .withMessage("First name has non-alphanumeric characters.")
+    .escape(),
   body("family_name")
     .trim()
     .isLength({ min: 1 })
-    .escape()
     .withMessage("Family name must be specified.")
     .isAlphanumeric()
-    .withMessage("Family name has non-alphanumeric characters."),
-  body("date_of_birth", "Invalid date of birth")
+    .withMessage("Family name has non-alphanumeric characters.")
+    .escape(),
+  body("date_of_birth")
     .optional({ values: "falsy" })
     .isISO8601()
+    .withMessage("Invalid date of birth")
     .toDate(),
-  body("date_of_death", "Invalid date of death")
+  body("date_of_death")
     .optional({ values: "falsy" })
     .isISO8601()
+    .withMessage("Invalid date of death")
     .toDate(),
 
   // Process request after validation and sanitization.
   asyncHandler(async (req, res, next) => {
-    // Extract the validation errors from a request.
     const errors = validationResult(req);
 
-    // Create Author object with escaped and trimmed data
     const author = new Author({
       first_name: req.body.first_name,
       family_name: req.body.family_name,
@@ -111,108 +65,43 @@ exports.author_create = [
     });
 
     if (!errors.isEmpty()) {
-      // There are errors. Render form again with sanitized values/errors messages.
-      res.json({
-        author: author,
+      res.status(400).json({
         errors: errors.array(),
+        author,
       });
-      return;
     } else {
-      // Data from form is valid.
-
-      // Save author.
-      await author.save();
-      // Redirect to new author record.
-      res.redirect(author.url);
+      const savedAuthor = await author.save();
+      res.status(201).json(savedAuthor);
     }
   }),
 ];
 
-
-// Display Author delete form on GET.
-exports.author_delete_get = asyncHandler(async (req, res, next) => {
-  // Get details of author and all their books (in parallel)
-  const [author, allBooksByAuthor] = await Promise.all([
-    Author.findById(req.params.id).exec(),
-    Book.find({ author: req.params.id }, "title summary").exec(),
-  ]);
-
-  if (author === null) {
-    // No results.
-    res.redirect("/catalog/authors");
-  }
-
-  res.json({
-    author: author,
-    author_books: allBooksByAuthor,
-  });
-});
-
-
-// Handle Author delete on POST.
-exports.author_delete = asyncHandler(async (req, res, next) => {
-  // Get details of author and all their books (in parallel)
-  const [author, allBooksByAuthor] = await Promise.all([
-    Author.findById(req.params.id).exec(),
-    Book.find({ author: req.params.id }, "title summary").exec(),
-  ]);
-
-  if (allBooksByAuthor.length > 0) {
-    // Author has books. Render in same way as for GET route.
-    res.json({
-      author: author,
-      author_books: allBooksByAuthor,
-    });
-    return;
-  } else {
-    // Author has no books. Delete object and redirect to the list of authors.
-    await Author.findByIdAndDelete(req.body.authorid);
-    res.redirect("/catalog/authors");
-  }
-});
-
-
-// Display Author update form on GET.
-exports.author_update_get = asyncHandler(async (req, res, next) => {
-  const author = await Author.findById(req.params.id).exec();
-
-  if (author === null) {
-    // No results.
-    const err = new Error("Author not found");
-    err.status = 404;
-    return next(err);
-  }
-
-  res.json({
-    author: author,
-  });
-});
-
-
-// Handle Author update on POST.
+// Handle Author update on PUT.
 exports.author_update = [
   // Validate and sanitize fields.
   body("first_name")
     .trim()
     .isLength({ min: 1 })
-    .escape()
     .withMessage("First name must be specified.")
     .isAlphanumeric()
-    .withMessage("First name has non-alphanumeric characters."),
+    .withMessage("First name has non-alphanumeric characters.")
+    .escape(),
   body("family_name")
     .trim()
     .isLength({ min: 1 })
-    .escape()
     .withMessage("Family name must be specified.")
     .isAlphanumeric()
-    .withMessage("Family name has non-alphanumeric characters."),
-  body("date_of_birth", "Invalid date of birth")
+    .withMessage("Family name has non-alphanumeric characters.")
+    .escape(),
+  body("date_of_birth")
     .optional({ values: "falsy" })
     .isISO8601()
+    .withMessage("Invalid date of birth")
     .toDate(),
-  body("date_of_death", "Invalid date of death")
+  body("date_of_death")
     .optional({ values: "falsy" })
     .isISO8601()
+    .withMessage("Invalid date of death")
     .toDate(),
 
   asyncHandler(async (req, res, next) => {
@@ -223,18 +112,43 @@ exports.author_update = [
       family_name: req.body.family_name,
       date_of_birth: req.body.date_of_birth,
       date_of_death: req.body.date_of_death,
-      _id: req.params.id,
+      _id: req.params.id, // Обов'язково передаємо _id для оновлення
     });
 
     if (!errors.isEmpty()) {
-      res.json({
-        author: author,
+      res.status(400).json({
         errors: errors.array(),
+        author,
       });
-      return;
     } else {
-      const updatedAuthor = await Author.findByIdAndUpdate(req.params.id, author, {});
-      res.redirect(updatedAuthor.url);
+      await Author.findByIdAndUpdate(req.params.id, author, {});
+      const updatedAuthor = await Author.findById(req.params.id);
+      res.json(updatedAuthor);
     }
   }),
 ];
+
+// Handle Author delete on DELETE.
+exports.author_delete = asyncHandler(async (req, res, next) => {
+  const [author, authorBooks] = await Promise.all([
+    Author.findById(req.params.id).exec(),
+    Book.find({ author: req.params.id }, "title summary").exec(),
+  ]);
+
+  if (author === null) {
+    const err = new Error("Author not found");
+    err.status = 404;
+    return next(err);
+  }
+
+  if (authorBooks.length > 0) {
+    res.status(400).json({
+      error: "Cannot delete author with existing books. Delete books first.",
+      author,
+      author_books: authorBooks,
+    });
+  } else {
+    await Author.findByIdAndDelete(req.params.id);
+    res.status(204).end();
+  }
+});

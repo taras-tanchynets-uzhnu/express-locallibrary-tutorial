@@ -50,6 +50,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Nineteen Eighty Four\",\n  \"author\": \"6822253813561b7d412f8641\",\n  \"summary\": \"Set in a dystopian future, the novel presents a society under the total control of a totalitarian regime, led by the omnipresent Big Brother.\",\n  \"isbn\": \"2734578263958\", \n  \"genre\": \"68222683fa2b4d68704a7e30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{URL}}/books",
 							"host": [
@@ -67,6 +76,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Nineteen Eighty Four\",\n  \"author\": \"6822253813561b7d412f8641\",\n  \"summary\": \"The protagonist, a low-ranking member of 'the Party', begins to question the regime and falls in love with a woman, an act of rebellion in a world where independent thought, dissent, and love are prohibited.\",\n  \"isbn\": \"2734578263958\", \n  \"genre\": \"68222683fa2b4d68704a7e30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{URL}}/books/67e329c0a67c066e18d28969",
 							"host": [
@@ -86,89 +104,47 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/books/67e329c0a67c066e18d2896b",
+							"raw": "{{URL}}/books/682227e3fa2b4d68704a7e3b",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"books",
-								"67e329c0a67c066e18d2896b"
+								"682227e3fa2b4d68704a7e3b"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Book Create GET",
+					"name": "Book Create Form",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/book/create/",
+							"raw": "{{URL}}/bookscreateform",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"book",
-								"create",
-								""
+								"bookscreateform"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Book Update GET",
+					"name": "Book Create Form",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/book/67e329c0a67c066e18d28968/update",
+							"raw": "{{URL}}/bookscreateform",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"book",
-								"67e329c0a67c066e18d28968",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Book Delete GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/book/67e329c0a67c066e18d28968/delete",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"book",
-								"67e329c0a67c066e18d28968",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Book Delete GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/book/67e329c0a67c066e18d28968/delete",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"book",
-								"67e329c0a67c066e18d28968",
-								"delete"
+								"bookscreateform"
 							]
 						}
 					},
@@ -202,13 +178,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/authors/67e329c0a67c066e18d2895f",
+							"raw": "{{URL}}/authors/6822253813561b7d412f8641",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"authors",
-								"67e329c0a67c066e18d2895f"
+								"6822253813561b7d412f8641"
 							]
 						}
 					},
@@ -219,6 +195,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"George\",\n  \"family_name\": \"Orwell\",\n  \"date_of_birth\": \"1903-06-25\",\n  \"date_of_death\": \"1950-01-21\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{URL}}/authors",
 							"host": [
@@ -236,14 +221,23 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"George1\",\n  \"family_name\": \"Orwell\",\n  \"date_of_birth\": \"1903-06-15\",\n  \"date_of_death\": \"1950-01-11\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{URL}}/authors/67e329c0a67c066e18d2895f",
+							"raw": "{{URL}}/authors/6822253813561b7d412f8641",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"authors",
-								"67e329c0a67c066e18d2895f"
+								"6822253813561b7d412f8641"
 							]
 						}
 					},
@@ -255,88 +249,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/authors/67e329c0a67c066e18d2895f",
+							"raw": "{{URL}}/authors/6822253813561b7d412f8641",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"authors",
-								"67e329c0a67c066e18d2895f"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Author Create GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/author/create",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"author",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Author Delete GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/author/67e329c0a67c066e18d2895f/delete",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"author",
-								"67e329c0a67c066e18d2895f",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Author Update GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/author/67e329c0a67c066e18d2895f/update",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"author",
-								"67e329c0a67c066e18d2895f",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Author Update GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/author/67e329c0a67c066e18d2895f/update",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"author",
-								"67e329c0a67c066e18d2895f",
-								"update"
+								"6822253813561b7d412f8641"
 							]
 						}
 					},
@@ -370,13 +289,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/genres/67e329c0a67c066e18d28956",
+							"raw": "{{URL}}/genres/68222683fa2b4d68704a7e30",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"genres",
-								"67e329c0a67c066e18d28956"
+								"68222683fa2b4d68704a7e30"
 							]
 						}
 					},
@@ -387,6 +306,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Novel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{URL}}/genres",
 							"host": [
@@ -404,14 +332,23 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Cool Novel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{URL}}/genres/67e329c0a67c066e18d28956",
+							"raw": "{{URL}}/genres/68222683fa2b4d68704a7e30",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"genres",
-								"67e329c0a67c066e18d28956"
+								"68222683fa2b4d68704a7e30"
 							]
 						}
 					},
@@ -423,88 +360,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/genres/67e329c0a67c066e18d28956",
+							"raw": "{{URL}}/genres/68222683fa2b4d68704a7e30",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"genres",
-								"67e329c0a67c066e18d28956"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Genre Create GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/genre/create",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"genre",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Genre Delete GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/genre/67e329c0a67c066e18d28956/delete",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"genre",
-								"67e329c0a67c066e18d28956",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Genre Update GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/genre/67e329c0a67c066e18d28956/update",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"genre",
-								"67e329c0a67c066e18d28956",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Genre Update GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/genre/67e329c0a67c066e18d28956/update",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"genre",
-								"67e329c0a67c066e18d28956",
-								"update"
+								"68222683fa2b4d68704a7e30"
 							]
 						}
 					},
@@ -567,6 +429,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"book\": \"67e329c0a67c066e18d28969\", \n  \"imprint\": \"First Edition, 1949\",\n  \"status\": \"Available\",\n  \"due_back\": \"2025-05-27\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{URL}}/bookinstances",
 							"host": [
@@ -584,14 +455,23 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"book\": \"67e329c0a67c066e18d28969\", \n  \"imprint\": \"Second Edition, 1951\",\n  \"status\": \"Maintenance\",\n  \"due_back\": \"2025-05-29\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{URL}}/bookinstances/67e329c1a67c066e18d2897b",
+							"raw": "{{URL}}/bookinstances/68222911fa2b4d68704a7e54",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"bookinstances",
-								"67e329c1a67c066e18d2897b"
+								"68222911fa2b4d68704a7e54"
 							]
 						}
 					},
@@ -603,88 +483,47 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/bookinstances/67e329c1a67c066e18d2897b",
+							"raw": "{{URL}}/bookinstances/67e329c1a67c066e18d2897a",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"bookinstances",
-								"67e329c1a67c066e18d2897b"
+								"67e329c1a67c066e18d2897a"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "BookInstance Create GET",
+					"name": "BookInstance Create Form",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/bookinstance/create",
+							"raw": "{{URL}}/bookinstancescreateform",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"bookinstance",
-								"create"
+								"bookinstancescreateform"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "BookInstance Delete GET",
+					"name": "BookInstance Create Form",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/bookinstance/67e329c1a67c066e18d2897b/delete",
+							"raw": "{{URL}}/bookinstancescreateform",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"bookinstance",
-								"67e329c1a67c066e18d2897b",
-								"delete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "BookInstance Update GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/bookinstance/67e329c1a67c066e18d2897a/update",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"bookinstance",
-								"67e329c1a67c066e18d2897a",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "BookInstance Update GET",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/bookinstance/67e329c1a67c066e18d2897a/update",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"bookinstance",
-								"67e329c1a67c066e18d2897a",
-								"update"
+								"bookinstancescreateform"
 							]
 						}
 					},
