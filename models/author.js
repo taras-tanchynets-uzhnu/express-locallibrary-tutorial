@@ -1,57 +1,53 @@
-const { DateTime } = require('luxon');
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const { DateTime } = require("luxon");
 
-const AuthorSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const AuthorSchema = new Schema({
   first_name: { type: String, required: true, maxLength: 100 },
   family_name: { type: String, required: true, maxLength: 100 },
   date_of_birth: { type: Date },
   date_of_death: { type: Date },
 });
 
-AuthorSchema.virtual('name').get(function () {
-  let fullname = '';
+// Virtual for author's full name
+AuthorSchema.virtual("name").get(function () {
+  // To avoid errors in cases where an author does not have either a family name or first name
+  // We want to make sure we handle the exception by returning an empty string for that case
+  let fullname = "";
   if (this.first_name && this.family_name) {
     fullname = `${this.family_name}, ${this.first_name}`;
   }
+  
   return fullname;
 });
 
-AuthorSchema.virtual('url').get(function () {
+
+// Virtual for author's URL
+AuthorSchema.virtual("url").get(function () {
+  // We don't use an arrow function as we'll need the this object
   return `/catalog/author/${this._id}`;
 });
 
-AuthorSchema.virtual('date_of_birth_formatted').get(function () {
-  return this.date_of_birth
-    ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_SHORT)
-    : '';
-});
 
-AuthorSchema.virtual('date_of_death_formatted').get(function () {
-  return this.date_of_death
-    ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_SHORT)
-    : '';
-});
+// Virtual for formatted lifespan
+AuthorSchema.virtual("lifespan").get(function () {
+  const birth = this.date_of_birth ? 
+  DateTime.fromJSDate(this.date_of_birth).setLocale("uk").toLocaleString(DateTime.DATE_FULL): "n/a";
 
-AuthorSchema.virtual('lifespan_formatted').get(function () {
-  let lifespan = '';
+  const death = this.date_of_death ? 
+  DateTime.fromJSDate(this.date_of_death).setLocale("uk").toLocaleString(DateTime.DATE_FULL): "n/a";
+
+  let age = "";
   if (this.date_of_birth) {
-    lifespan += DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
+    const endDate = this.date_of_death ? this.date_of_death : new Date();
+    age = ` (${DateTime.fromJSDate(endDate).diff(DateTime.fromJSDate(this.date_of_birth), "years").years.toFixed(0)} років)`;
   }
-  if (this.date_of_death) {
-    lifespan += ` - ${DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)}`;
-  }
-  return lifespan;
+
+  return `${birth} – ${death}${age}`;
 });
 
-AuthorSchema.virtual('age').get(function () {
-  if (this.date_of_birth) {
-    const birthDate = DateTime.fromJSDate(this.date_of_birth);
-    const endDate = this.date_of_death
-      ? DateTime.fromJSDate(this.date_of_death)
-      : DateTime.local();
-    return Math.floor(endDate.diff(birthDate, 'years').years); // Округлення до цілого числа
-  }
-  return '';
-});
 
-module.exports = mongoose.model('Author', AuthorSchema);
+// Export model
+module.exports = mongoose.model("Author", AuthorSchema);
+

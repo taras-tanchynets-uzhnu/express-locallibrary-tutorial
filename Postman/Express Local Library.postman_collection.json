@@ -1,0 +1,739 @@
+{
+	"info": {
+		"_postman_id": "02e86122-fb5e-43dc-abe3-11a1b3f24733",
+		"name": "Express Local Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44884460",
+		"_collection_link": "https://taqquera-4443905.postman.co/workspace/taqquera's-Workspace~25a7a27a-4bc5-4441-8ac7-965fc74f2d22/collection/44884460-02e86122-fb5e-43dc-abe3-11a1b3f24733?action=share&source=collection_link&creator=44884460"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Books List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/books",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/books/67e329c0a67c066e18d28969",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"books",
+								"67e329c0a67c066e18d28969"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/books",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/books/67e329c0a67c066e18d28969",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"books",
+								"67e329c0a67c066e18d28969"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/books/67e329c0a67c066e18d2896b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"books",
+								"67e329c0a67c066e18d2896b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Create GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/book/create/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"book",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/book/67e329c0a67c066e18d28968/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"book",
+								"67e329c0a67c066e18d28968",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Delete GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/book/67e329c0a67c066e18d28968/delete",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"book",
+								"67e329c0a67c066e18d28968",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Delete GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/book/67e329c0a67c066e18d28968/delete",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"book",
+								"67e329c0a67c066e18d28968",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Author List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/authors",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/authors/67e329c0a67c066e18d2895f",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"authors",
+								"67e329c0a67c066e18d2895f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/authors",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/authors/67e329c0a67c066e18d2895f",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"authors",
+								"67e329c0a67c066e18d2895f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/authors/67e329c0a67c066e18d2895f",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"authors",
+								"67e329c0a67c066e18d2895f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Create GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/author/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"author",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Delete GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/author/67e329c0a67c066e18d2895f/delete",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"author",
+								"67e329c0a67c066e18d2895f",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/author/67e329c0a67c066e18d2895f/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"author",
+								"67e329c0a67c066e18d2895f",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Author Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/author/67e329c0a67c066e18d2895f/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"author",
+								"67e329c0a67c066e18d2895f",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genre",
+			"item": [
+				{
+					"name": "Genre List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genres",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genres/67e329c0a67c066e18d28956",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genres",
+								"67e329c0a67c066e18d28956"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genres",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genres/67e329c0a67c066e18d28956",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genres",
+								"67e329c0a67c066e18d28956"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genres/67e329c0a67c066e18d28956",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genres",
+								"67e329c0a67c066e18d28956"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Create GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genre/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genre",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Delete GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genre/67e329c0a67c066e18d28956/delete",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genre",
+								"67e329c0a67c066e18d28956",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genre/67e329c0a67c066e18d28956/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genre",
+								"67e329c0a67c066e18d28956",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genre Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/genre/67e329c0a67c066e18d28956/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"genre",
+								"67e329c0a67c066e18d28956",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookinstance",
+			"item": [
+				{
+					"name": "BookInstance List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstances",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstances/67e329c1a67c066e18d2897b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstances",
+								"67e329c1a67c066e18d2897b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstances",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstances/67e329c1a67c066e18d2897b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstances",
+								"67e329c1a67c066e18d2897b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstances/67e329c1a67c066e18d2897b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstances",
+								"67e329c1a67c066e18d2897b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Create GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstance/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstance",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Delete GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstance/67e329c1a67c066e18d2897b/delete",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstance",
+								"67e329c1a67c066e18d2897b",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstance/67e329c1a67c066e18d2897a/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstance",
+								"67e329c1a67c066e18d2897a",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookInstance Update GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookinstance/67e329c1a67c066e18d2897a/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookinstance",
+								"67e329c1a67c066e18d2897a",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}",
+					"host": [
+						"{{URL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000/catalog",
+			"type": "string"
+		}
+	]
+}
