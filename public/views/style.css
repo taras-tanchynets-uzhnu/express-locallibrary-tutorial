@@ -1,0 +1,342 @@
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==== ОСНОВНЕ ТІЛО ==== */
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', sans-serif;
+  color: #e0f7fa;
+  transition: background 0.5s ease;
+}
+
+body h1 {
+  text-align: center;
+  color: #00e5ff;
+  margin-top: 20px;
+  animation: fadeIn 1s ease;
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+/* ==== МОДАЛЬНІ ВІКНА ==== */
+#bookCreationModal,
+#authorCreationModal,
+#genreCreationModal, 
+#bookInstanceCreationModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.2);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 0.5s ease;
+}
+
+#modalContent {
+  background: linear-gradient(to right, #1e1e2f, #2c3e50);
+  margin: 8% auto;
+  padding: 25px;
+  border-radius: 14px;
+  width: 40%;
+  max-width: 600px;
+  color: #e0f7fa;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  position: relative;
+  animation: slideIn 0.5s ease;
+}
+
+/* ==== КНОПКА ЗАКРИТТЯ ==== */
+#closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #80deea;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#closeButton:hover {
+  color: #00e5ff;
+  transform: rotate(90deg);
+}
+
+/* ==== ФОРМИ ==== */
+.modal-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 2px solid #3949ab;
+  background: #1a237e;
+  color: #e8eaf6;
+  box-shadow: 0 0 10px rgba(98, 0, 234, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-form input:focus,
+.modal-form select:focus,
+.modal-form textarea:focus {
+  outline: none;
+  border-color: #7c4dff;
+  box-shadow: 0 0 20px #7c4dff;
+}
+
+/* ==== ЧЕКБОКСИ ==== */
+#genreCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-form input[type="checkbox"] {
+  width: auto;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(to right, #4527a0, #283593);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #fff;
+  border: 1px solid #7c4dff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 8px rgba(156, 39, 176, 0.5);
+}
+
+.checkbox-label:hover {
+  background: linear-gradient(to right, #7c4dff, #512da8);
+  transform: scale(1.05);
+}
+
+/* ==== ТОСТ ==== */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1de9b6;
+  color: #1a1a1a;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 2000;
+  box-shadow: 0 0 12px rgba(0,255,200,0.8);
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ==== HEADER ==== */
+header {
+  background: linear-gradient(to right, #0f2027, #2c5364);
+  padding: 30px 0;
+  color: #00e5ff;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+}
+
+/* ==== КНОПКИ ==== */
+.button-group button,
+.actions button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(to right, #00bcd4, #00acc1);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, filter 0.2s ease;
+}
+
+#createBookButton,
+#createAuthorButton,
+#createGenreButton,
+#createBookInstanceButton {  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(to right, #00bcd4, #00acc1);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, filter 0.2s ease;
+}
+
+#createBookButton:hover,
+#createAuthorButton:hover,
+#createGenreButton:hover,
+#createBookInstanceButton:hover,
+.button-group button:hover,
+.actions button:hover,
+.modal-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.8);
+  filter: brightness(1.1);
+}
+
+#createBookButton:active,
+#createAuthorButton:active,
+#createGenreButton:active,
+#createBookInstanceButton:active,
+.button-group button:active,
+.actions button:active,
+.modal-button:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+}
+
+.modal-button.cancel {
+  background: linear-gradient(to right, #ff1744, #d50000);
+}
+
+.modal-button.cancel:hover {
+  box-shadow: 0 0 16px rgba(255, 23, 68, 0.6);
+}
+
+/* ==== НАВІГАЦІЯ ==== */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  background: linear-gradient(to right, #6200ea, #7c4dff);
+  padding: 12px 20px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-right: 20px ;
+  box-shadow: 0 0 8px #7c4dff;
+}
+
+nav a:hover {
+  background: linear-gradient(to right, #7b1fa2, #4a148c);
+  transform: scale(1.05);
+}
+
+/* ==== КНОПКИ РЕДАГУВАННЯ І ВИДАЛЕННЯ ==== */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-group button:nth-child(1) {
+  background: linear-gradient(to right, #00c853, #43a047);
+}
+
+.button-group button:nth-child(2) {
+  background: linear-gradient(to right, #ff1744, #d50000);
+}
+
+/* ==== ВИВІД СУТНОСТЕЙ ==== */
+#bookContainer,
+#authorContainer,
+#genreContainer,
+#bookInstanceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px;
+}
+
+/* ==== КАРТКИ ==== */
+.book,
+.author,
+.genre,
+.book-instance {
+  background: linear-gradient(to right, #1a237e, #311b92);
+  padding: 16px 20px;
+  border-radius: 10px;
+  color: #e0f7fa;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+}
+
+.book:hover,
+.author:hover,
+.genre:hover,
+.book-instance:hover {
+  background: linear-gradient(to right, #4527a0, #512da8);
+  box-shadow: 0 0 20px rgba(98, 0, 234, 0.6);
+}
+
+/* ==== ВМІСТ ТА КНОПКИ ==== */
+.text-content {
+  font-size: 16px;
+  color: #cfd8dc;
+  flex-grow: 1;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.actions button {
+  background: linear-gradient(to right, #ff6f00, #ff8f00);
+  width: 100%;
+  padding: 12px;
+  box-shadow: 0 0 12px rgba(255, 143, 0, 0.5);
+}
+
+/* ==== АНІМАЦІЇ ==== */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
